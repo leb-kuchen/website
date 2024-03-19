@@ -1,6 +1,7 @@
 package server
 
 import (
+	"cmp"
 	"fmt"
 	"net/http"
 	"os"
@@ -16,6 +17,7 @@ type Server struct {
 
 func NewServer() *http.Server {
 	port, _ := strconv.Atoi(os.Getenv("PORT"))
+	port = cmp.Or(port, 8080)
 	NewServer := &Server{
 		port: port,
 	}
