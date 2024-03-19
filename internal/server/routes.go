@@ -13,14 +13,14 @@ import (
 func (s *Server) RegisterRoutes() http.Handler {
 
 	r := http.NewServeMux()
-	r.HandleFunc("/", s.HelloWorldHandler)
+	// r.HandleFunc("/", s.HelloWorldHandler)
 
 	jsFiles := http.FileServer(http.FS(web.JSFiles))
 	cssFiles := http.FileServer(http.FS(web.CSSFiles))
 	r.Handle("/js/", jsFiles)
 	r.Handle("/css/", cssFiles)
-	r.Handle("/web", templ.Handler(web.HelloForm()))
-	r.HandleFunc("/hello", web.HelloWebHandler)
+	r.Handle("/", templ.Handler(web.HelloForm()))
+	// r.HandleFunc("/hello", web.HelloWebHandler)
 
 	return r
 }
