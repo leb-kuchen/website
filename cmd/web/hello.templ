@@ -1,15 +1,29 @@
 package web
 
+import "strconv"
+
 templ HelloForm() {
-	@Base() {
-		<form hx-post="/hello" method="POST" hx-target="#hello-container">
-			<input id="name" name="name" type="text"/>
-			<button type="submit">Submit</button>
-		</form>
-		<div id="hello-container"></div>
-	}
+@Base() {
+<div class="content-wrapper">
+	<div class="title-start">
+		Ich nenne mich Programmierer.
+	</div>
+	<div class="grid-heading">
+		Hier sind einige meiner Projekte
+	</div>
+	<div class="grid">
+		for i := range 6 {
+		<div class="grid-item">{ strconv.Itoa(i) }</div>
+		}
+	</div>
+</div>
+}
 }
 
+
+
+
+
 templ HelloPost(name string) {
-	<div>Hello, { name }</div>
+<div>Hello, { name }</div>
 }

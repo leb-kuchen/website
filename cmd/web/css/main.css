@@ -1,0 +1,41 @@
+:root {
+    --text: #050315;
+    --background: #fbfbfe;
+    --primary: #6d1c7b;
+    --secondary: #dedcff;
+    --accent: #433bff;
+}
+
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.grid-heading {
+    font-size: 2.25rem;
+    text-align: center;
+}
+
+.title-start {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.content-wrapper>*:not(:last-child) {
+    margin-bottom: 4rem;
+}
+
+main {
+    color: var(--text);
+}
+
+
+
+.grid-item {
+    border: 0.25rem solid var(--primary);
+    border-radius: 1.25rem;
+    height: 25rem;
+}

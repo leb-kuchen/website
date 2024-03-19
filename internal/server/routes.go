@@ -5,21 +5,24 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/a-h/templ"
 	"website/cmd/web"
+
+	"github.com/a-h/templ"
 )
 
 func (s *Server) RegisterRoutes() http.Handler {
 
-	mux := http.NewServeMux()
-	mux.HandleFunc("/", s.HelloWorldHandler)
+	r := http.NewServeMux()
+	r.HandleFunc("/", s.HelloWorldHandler)
 
-	fileServer := http.FileServer(http.FS(web.Files))
-	mux.Handle("/js/", fileServer)
-	mux.Handle("/web", templ.Handler(web.HelloForm()))
-	mux.HandleFunc("/hello", web.HelloWebHandler)
+	jsFiles := http.FileServer(http.FS(web.JSFiles))
+	cssFiles := http.FileServer(http.FS(web.CSSFiles))
+	r.Handle("/js/", jsFiles)
+	r.Handle("/css/", cssFiles)
+	r.Handle("/web", templ.Handler(web.HelloForm()))
+	r.HandleFunc("/hello", web.HelloWebHandler)
 
-	return mux
+	return r
 }
 
 func (s *Server) HelloWorldHandler(w http.ResponseWriter, r *http.Request) {

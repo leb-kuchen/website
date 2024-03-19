@@ -3,4 +3,7 @@ package web
 import "embed"
 
 //go:embed "js"
-var Files embed.FS
+var JSFiles embed.FS
+
+//go:embed "css"
+var CSSFiles embed.FS
