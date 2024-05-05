@@ -1,21 +1,24 @@
 package web
 
 templ Base() {
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="utf-8" />
-	<title>Go Blueprint Hello</title>
-	<script src="/js/htmx.min.js"></script>
-	<link rel="stylesheet" href="/css/main.css" />
-</head>
-
-<body>
-	<main>
-		{ children... }
-	</main>
-</body>
-
-</html>
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Dominic A. R. Gerhauser</title>
+			<script src="/js/htmx.min.js"></script>
+			<link rel="stylesheet" href="/css/main.css"/>
+		</head>
+		<body class="grid-pancake ut-min-h-100">
+			<header>
+				Ich - Kontakt
+			</header>
+			<main class="ut-center">
+				{ children... }
+			</main>
+			<footer>
+				Willkommen auf meiner Seite
+			</footer>
+		</body>
+	</html>
 }

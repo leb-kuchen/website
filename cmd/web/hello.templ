@@ -1,22 +1,10 @@
 package web
 
-import "strconv"
+
 
 templ HelloForm() {
 @Base() {
-<div class="content-wrapper">
-	<div class="title-start">
-		Ich nenne mich Programmierer.
-	</div>
-	<div class="grid-heading">
-		Hier sind einige meiner Projekte
-	</div>
-	<div class="grid">
-		for i := range 6 {
-		<div class="grid-item">{ strconv.Itoa(i) }</div>
-		}
-	</div>
-</div>
+<div class="text-decoration-accent">Hallo, Hier ensteht Grosses </div>
 }
 }
 
